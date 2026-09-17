@@ -1,0 +1,2866 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>For Riddhika Jii 💗</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Pacifico&family=Playfair+Display:wght@600;700&display=swap');
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+:root{
+    --bg:#080711;
+    --card:#151321;
+    --pink:#ff72b6;
+    --purple:#9b7cff;
+    --white:#fff;
+    --muted:#aaa8bb;
+    --green:#65e6aa;
+    --red:#ff668f;
+}
+
+html,body{
+    min-height:100%;
+    background:var(--bg);
+    color:var(--white);
+    font-family:"DM Sans",sans-serif;
+}
+
+body{
+    overflow-x:hidden;
+    background:
+        radial-gradient(circle at 10% 10%,rgba(255,114,182,.16),transparent 30%),
+        radial-gradient(circle at 90% 15%,rgba(155,124,255,.16),transparent 30%),
+        var(--bg);
+}
+
+/* =====================================================
+FLOATING DECOR
+===================================================== */
+
+#decor{
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    overflow:hidden;
+    z-index:0;
+}
+
+.float{
+    position:absolute;
+    bottom:-50px;
+    animation:floatUp linear infinite;
+    opacity:.65;
+}
+
+@keyframes floatUp{
+    0%{
+        transform:translateY(0) rotate(0deg);
+        opacity:0;
+    }
+    15%{opacity:.7;}
+    85%{opacity:.7;}
+    100%{
+        transform:translateY(-115vh) rotate(360deg);
+        opacity:0;
+    }
+}
+
+/* =====================================================
+APP
+===================================================== */
+
+#app{
+    position:relative;
+    z-index:2;
+}
+
+.page{
+    display:none;
+    max-width:950px;
+    min-height:100vh;
+    margin:auto;
+    padding:35px 18px 120px;
+    animation:pageIn .5s ease;
+}
+
+.page.active{
+    display:flex;
+    flex-direction:column;
+}
+
+@keyframes pageIn{
+    from{
+        opacity:0;
+        transform:translateY(18px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+/* =====================================================
+TYPOGRAPHY
+===================================================== */
+
+.logo{
+    text-align:center;
+    color:var(--muted);
+    letter-spacing:4px;
+    font-size:11px;
+    margin-bottom:35px;
+}
+
+h1,h2{
+    font-family:"Playfair Display",serif;
+}
+
+.script{
+    font-family:"Pacifico",cursive;
+}
+
+/* =====================================================
+COMMON
+===================================================== */
+
+.hero{
+    margin:auto;
+    text-align:center;
+}
+
+.hero-sticker{
+    font-size:72px;
+    animation:bounce 1.5s infinite;
+}
+
+@keyframes bounce{
+    0%,100%{
+        transform:translateY(0) rotate(-3deg);
+    }
+    50%{
+        transform:translateY(-13px) rotate(3deg);
+    }
+}
+
+.hero h1{
+    font-size:clamp(48px,12vw,100px);
+    margin:12px 0;
+    background:linear-gradient(
+        120deg,
+        #fff,
+        var(--pink),
+        var(--purple)
+    );
+    -webkit-background-clip:text;
+    color:transparent;
+}
+
+.hero p{
+    color:var(--muted);
+    line-height:1.8;
+    max-width:620px;
+    margin:auto;
+}
+
+.card{
+    background:rgba(255,255,255,.045);
+    border:1px solid rgba(255,255,255,.09);
+    border-radius:25px;
+    padding:28px;
+    box-shadow:0 20px 70px rgba(0,0,0,.3);
+    backdrop-filter:blur(12px);
+}
+
+.center{
+    text-align:center;
+}
+
+.title{
+    text-align:center;
+    margin-bottom:25px;
+}
+
+.title h2{
+    font-size:clamp(32px,8vw,52px);
+}
+
+.title p{
+    color:var(--muted);
+    margin-top:8px;
+}
+
+.main-btn{
+    margin-top:22px;
+    padding:14px 24px;
+    border:0;
+    border-radius:100px;
+    color:white;
+    background:linear-gradient(
+        110deg,
+        var(--purple),
+        var(--pink)
+    );
+    font-weight:700;
+    cursor:pointer;
+    transition:.25s;
+}
+
+.main-btn:hover{
+    transform:translateY(-3px) scale(1.02);
+}
+
+.main-btn:disabled{
+    opacity:.45;
+    cursor:not-allowed;
+}
+
+/* =====================================================
+STICKERS
+===================================================== */
+
+.sticker-row{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:15px;
+    margin:25px 0;
+}
+
+.sticker{
+    width:78px;
+    height:78px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border-radius:25px;
+    background:rgba(255,255,255,.06);
+    border:1px solid rgba(255,255,255,.08);
+    font-size:40px;
+    animation:wiggle 3s infinite;
+}
+
+.sticker:nth-child(2){animation-delay:.3s;}
+.sticker:nth-child(3){animation-delay:.6s;}
+.sticker:nth-child(4){animation-delay:.9s;}
+
+@keyframes wiggle{
+    0%,100%{transform:rotate(0deg);}
+    50%{transform:rotate(5deg) translateY(-4px);}
+}
+
+/* =====================================================
+COUNTDOWN
+===================================================== */
+
+.countdown{
+    display:flex;
+    justify-content:center;
+    gap:10px;
+    flex-wrap:wrap;
+    margin:30px 0;
+}
+
+.timebox{
+    min-width:75px;
+    padding:14px 10px;
+    border-radius:18px;
+    background:rgba(255,255,255,.05);
+    border:1px solid rgba(255,255,255,.08);
+}
+
+.timebox strong{
+    font-size:26px;
+    display:block;
+}
+
+.timebox span{
+    color:var(--muted);
+    font-size:10px;
+    text-transform:uppercase;
+}
+
+/* =====================================================
+LETTER
+===================================================== */
+
+.letter{
+    line-height:2;
+    color:#e8e7f2;
+}
+
+.highlight{
+    color:#fff;
+    font-weight:700;
+}
+
+/* =====================================================
+PASSWORD PAGE
+===================================================== */
+
+.password-page{
+    justify-content:center;
+}
+
+.lock{
+    font-size:75px;
+    animation:bounce 1.5s infinite;
+}
+
+.password-box{
+    max-width:450px;
+    width:100%;
+    margin:auto;
+    text-align:center;
+}
+
+.pin-wrap{
+    margin:26px auto 0;
+    padding:20px 18px 16px;
+    border:1px solid rgba(255,114,182,.25);
+    border-radius:24px;
+    background:linear-gradient(145deg,rgba(255,255,255,.08),rgba(255,105,180,.06));
+    box-shadow:0 18px 55px rgba(0,0,0,.25),inset 0 1px rgba(255,255,255,.08);
+    position:relative;
+    overflow:hidden;
+}
+.pin-wrap::before{content:"✦  ✧  ✦";position:absolute;top:8px;left:0;right:0;color:rgba(255,255,255,.35);font-size:12px;letter-spacing:10px;}
+.pin-label{margin-top:8px;font-size:11px;font-weight:800;letter-spacing:3px;color:#ffb6d7;}
+.pin-dots{display:flex;justify-content:center;gap:12px;margin:16px 0 -38px;pointer-events:none;position:relative;z-index:2;}
+.pin-dots span{width:13px;height:13px;border-radius:50%;border:1px solid rgba(255,255,255,.4);background:rgba(255,255,255,.05);box-shadow:0 0 0 4px rgba(255,255,255,.02);transition:.2s ease;}
+.pin-dots span.filled{background:var(--pink);border-color:#ffb6d7;box-shadow:0 0 14px rgba(255,114,182,.65);transform:scale(1.12);}
+.password-input{width:100%;margin-top:20px;padding:22px 16px 14px;border-radius:17px;border:1px solid rgba(255,255,255,.1);background:rgba(0,0,0,.18);color:white;text-align:center;font-size:25px;letter-spacing:12px;outline:none;transition:.25s ease;}
+.password-input::placeholder{color:rgba(255,255,255,.22);}
+.password-input:focus{border-color:var(--pink);box-shadow:0 0 0 4px rgba(255,114,182,.10),0 0 25px rgba(255,114,182,.16);}
+.pin-hint{margin-top:12px;font-size:11px;color:var(--muted);}
+
+.password-message{
+    min-height:25px;
+    margin-top:14px;
+    color:var(--muted);
+}
+
+.shake{
+    animation:shake .35s;
+}
+
+@keyframes shake{
+    0%,100%{transform:translateX(0);}
+    25%{transform:translateX(-8px);}
+    75%{transform:translateX(8px);}
+}
+
+/* =====================================================
+POLAROID
+===================================================== */
+
+.polaroid-wrap{
+    display:flex;
+    justify-content:center;
+    padding:15px;
+}
+
+.polaroid{
+    width:min(330px,90vw);
+    padding:15px 15px 25px;
+    background:#fff;
+    color:#222;
+    box-shadow:0 20px 60px rgba(0,0,0,.45);
+    transform:rotate(-3deg);
+    transition:.4s;
+}
+
+.polaroid:hover{
+    transform:rotate(0deg) scale(1.03);
+}
+
+.polaroid img{
+    display:block;
+    width:100%;
+    aspect-ratio:1/1;
+    object-fit:cover;
+    background:#eee;
+}
+
+.polaroid-caption{
+    font-family:"Pacifico",cursive;
+    text-align:center;
+    margin-top:17px;
+    font-size:21px;
+}
+
+/* =====================================================
+PICKUP
+===================================================== */
+
+.pickup-grid{
+    display:grid;
+    grid-template-columns:
+        repeat(auto-fit,minmax(220px,1fr));
+    gap:15px;
+}
+
+.pickup{
+    position:relative;
+    min-height:210px;
+    cursor:pointer;
+    padding:25px;
+    border-radius:25px;
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,114,182,.13),
+            rgba(155,124,255,.08)
+        );
+    border:1px solid rgba(255,255,255,.09);
+    transition:.3s;
+    overflow:hidden;
+}
+
+.pickup:hover{
+    transform:translateY(-6px);
+}
+
+.pickup .emoji{
+    font-size:42px;
+}
+
+.pickup h3{
+    margin:15px 0 8px;
+}
+
+.pickup p{
+    color:var(--muted);
+    line-height:1.7;
+    display:none;
+}
+
+.pickup small{
+    color:var(--pink);
+}
+
+.pickup.revealed p{
+    display:block;
+}
+
+.pickup.revealed small{
+    display:none;
+}
+
+/* =====================================================
+QUIZ
+===================================================== */
+
+.progress{
+    height:6px;
+    background:rgba(255,255,255,.08);
+    border-radius:10px;
+    overflow:hidden;
+    margin-bottom:20px;
+}
+
+.progress-bar{
+    height:100%;
+    width:0%;
+    background:linear-gradient(
+        90deg,
+        var(--purple),
+        var(--pink)
+    );
+    transition:.3s;
+}
+
+.question{
+    font-size:20px;
+    font-weight:700;
+    line-height:1.5;
+}
+
+.choice{
+    width:100%;
+    padding:15px;
+    margin-top:12px;
+    border-radius:15px;
+    background:rgba(255,255,255,.05);
+    border:1px solid rgba(255,255,255,.08);
+    color:white;
+    text-align:left;
+    cursor:pointer;
+}
+
+.choice:hover{
+    background:rgba(255,114,182,.12);
+}
+
+.correct{
+    border-color:var(--green)!important;
+    background:rgba(101,230,170,.15)!important;
+}
+
+.wrong{
+    border-color:var(--red)!important;
+    background:rgba(255,102,143,.13)!important;
+}
+
+.quiz-result{
+    display:none;
+    text-align:center;
+}
+
+/* =====================================================
+BIRTHDAY TREASURE HUNT
+===================================================== */
+
+.treasure-game{
+    min-height:400px;
+    position:relative;
+    overflow:hidden;
+    border-radius:22px;
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(255,114,182,.15),
+            transparent 45%
+        ),
+        rgba(255,255,255,.025);
+    padding:25px;
+}
+
+.treasure-intro{
+    text-align:center;
+    color:var(--muted);
+    line-height:1.7;
+    margin-bottom:20px;
+}
+
+.treasure-cards{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:15px;
+    max-width:600px;
+    margin:30px auto 10px;
+}
+
+.treasure-card{
+    min-height:170px;
+    border:1px solid rgba(255,255,255,.1);
+    border-radius:22px;
+    background:linear-gradient(
+        145deg,
+        rgba(155,124,255,.14),
+        rgba(255,114,182,.10)
+    );
+    color:white;
+    cursor:pointer;
+    transition:.3s;
+    font-size:55px;
+    box-shadow:0 15px 40px rgba(0,0,0,.18);
+}
+
+.treasure-card:hover{
+    transform:translateY(-7px) rotate(-2deg);
+    border-color:rgba(255,114,182,.45);
+}
+
+.treasure-card.open{
+    background:rgba(255,255,255,.08);
+    transform:scale(1.03);
+}
+
+.treasure-card:disabled{
+    cursor:default;
+}
+
+.treasure-score{
+    display:flex;
+    justify-content:center;
+    gap:25px;
+    flex-wrap:wrap;
+    color:var(--muted);
+    margin-bottom:8px;
+}
+
+.treasure-score b{
+    color:white;
+}
+
+.treasure-message{
+    text-align:center;
+    min-height:55px;
+    color:var(--pink);
+    font-weight:700;
+    line-height:1.7;
+    margin-top:15px;
+}
+
+@media(max-width:600px){
+    .treasure-cards{
+        gap:9px;
+    }
+
+    .treasure-card{
+        min-height:125px;
+        font-size:42px;
+    }
+}
+
+/* =====================================================
+CAKE
+===================================================== */
+
+.cake-area{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height:410px;
+    flex-direction:column;
+}
+
+.cake{
+    position:relative;
+    width:260px;
+    height:190px;
+    margin-top:45px;
+}
+
+.cake-top{
+    position:absolute;
+    top:30px;
+    left:20px;
+    width:220px;
+    height:55px;
+    background:#ff8fbe;
+    border-radius:50%;
+    z-index:3;
+}
+
+.cake-body{
+    position:absolute;
+    top:55px;
+    left:20px;
+    width:220px;
+    height:105px;
+    background:linear-gradient(
+        90deg,
+        #ff7db5,
+        #ffb2d4
+    );
+    border-radius:0 0 25px 25px;
+    z-index:2;
+}
+
+.cream{
+    position:absolute;
+    top:63px;
+    left:20px;
+    width:220px;
+    height:25px;
+    background:white;
+    border-radius:50%;
+    z-index:4;
+}
+
+.drip{
+    position:absolute;
+    top:70px;
+    width:18px;
+    height:30px;
+    background:white;
+    border-radius:0 0 12px 12px;
+    z-index:5;
+}
+
+.drip1{left:55px;}
+.drip2{left:105px;}
+.drip3{left:155px;}
+
+.candle{
+    position:absolute;
+    bottom:120px;
+    width:18px;
+    height:60px;
+    background:repeating-linear-gradient(
+        45deg,
+        #fff 0 7px,
+        #ff72b6 7px 14px
+    );
+    border-radius:5px;
+    z-index:6;
+    cursor:pointer;
+}
+
+.candle1{left:75px;}
+.candle2{left:121px;}
+.candle3{left:167px;}
+
+.flame{
+    position:absolute;
+    width:18px;
+    height:25px;
+    background:#ffd45c;
+    border-radius:50% 50% 45% 45%;
+    top:-27px;
+    left:0;
+    box-shadow:0 0 18px #ffd45c;
+    animation:flame 0.5s infinite alternate;
+}
+
+@keyframes flame{
+    from{transform:scale(.9) rotate(-3deg);}
+    to{transform:scale(1.1) rotate(3deg);}
+}
+
+.candle.off .flame{
+    display:none;
+}
+
+.smoke{
+    position:absolute;
+    top:-40px;
+    left:5px;
+    font-size:22px;
+    display:none;
+}
+
+.candle.off .smoke{
+    display:block;
+    animation:smoke 1.5s ease forwards;
+}
+
+@keyframes smoke{
+    from{
+        opacity:1;
+        transform:translateY(0);
+    }
+    to{
+        opacity:0;
+        transform:translateY(-35px);
+    }
+}
+
+.cake-message{
+    color:var(--muted);
+    text-align:center;
+    margin-top:15px;
+    line-height:1.7;
+}
+
+/* =====================================================
+FINAL
+===================================================== */
+
+.final{
+    margin:auto;
+    text-align:center;
+}
+
+.final-gift{
+    font-size:90px;
+    animation:bounce 1.4s infinite;
+}
+
+.final h2{
+    font-size:clamp(38px,9vw,72px);
+    margin:20px 0;
+}
+
+.final p{
+    color:var(--muted);
+    line-height:1.9;
+    max-width:650px;
+    margin:auto;
+}
+
+/* =====================================================
+NAV
+===================================================== */
+
+.navigation{
+    position:fixed;
+    bottom:0;
+    left:0;
+    right:0;
+    height:78px;
+    z-index:20;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:12px;
+    background:rgba(8,7,17,.9);
+    backdrop-filter:blur(18px);
+    border-top:1px solid rgba(255,255,255,.08);
+}
+
+.nav-btn{
+    padding:12px 20px;
+    border-radius:100px;
+    border:1px solid rgba(255,255,255,.08);
+    background:rgba(255,255,255,.06);
+    color:white;
+    cursor:pointer;
+}
+
+.nav-btn.next{
+    background:linear-gradient(
+        110deg,
+        var(--purple),
+        var(--pink)
+    );
+    font-weight:700;
+}
+
+.nav-btn:disabled{
+    opacity:.3;
+    cursor:not-allowed;
+}
+.music-player{
+    display:none;
+    align-items:center;
+    gap:7px;
+    width:min(390px,92%);
+    margin:14px auto 0;
+    padding:6px 8px 6px 6px;
+    border:1px solid rgba(255,255,255,.12);
+    border-radius:15px;
+    background:rgba(21,19,33,.92);
+    box-shadow:0 12px 32px rgba(0,0,0,.32);
+    backdrop-filter:blur(14px);
+}
+
+.music-player.visible{
+    display:flex;
+}
+
+.music-cover{
+    width:30px;
+    height:30px;
+    flex:0 0 30px;
+    border-radius:8px;
+    object-fit:cover;
+    background:linear-gradient(135deg,var(--purple),var(--pink));
+}
+
+.music-details{
+    min-width:0;
+    flex:1;
+    text-align:left;
+}
+
+.music-title{
+    font-size:11px;
+    font-weight:700;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+}
+
+.music-status{
+    margin-top:2px;
+    color:var(--muted);
+    font-size:10px;
+}
+
+.music-timeline{
+    display:flex;
+    align-items:center;
+    gap:4px;
+    margin-top:3px;
+    min-width:0;
+}
+
+.music-progress{
+    width:100%;
+    height:3px;
+    min-width:0;
+    accent-color:var(--pink);
+    cursor:pointer;
+}
+
+.music-time{
+    color:var(--muted);
+    font-size:9px;
+    white-space:nowrap;
+}
+
+.music-toggle{
+    width:29px;
+    height:29px;
+    flex:0 0 29px;
+    border:0;
+    border-radius:50%;
+    color:white;
+    background:linear-gradient(135deg,var(--purple),var(--pink));
+    cursor:pointer;
+    font-size:13px;
+}
+
+.global-music-toggle{
+    position:fixed;
+    top:16px;
+    right:18px;
+    z-index:30;
+    display:none;
+    align-items:center;
+    justify-content:center;
+    width:42px;
+    height:42px;
+    border:1px solid rgba(255,255,255,.16);
+    border-radius:50%;
+    color:white;
+    background:rgba(21,19,33,.92);
+    box-shadow:0 10px 28px rgba(0,0,0,.3);
+    backdrop-filter:blur(12px);
+    cursor:pointer;
+    font-size:17px;
+}
+
+.global-music-toggle.visible{
+    display:flex;
+}
+
+.global-music-toggle:hover{
+    background:linear-gradient(135deg,var(--purple),var(--pink));
+}
+
+.music-lyrics{
+    width:min(390px,92%);
+    min-height:24px;
+    margin:6px auto 0;
+    padding:0 8px;
+    color:#f5d9e8;
+    font-size:11px;
+    font-style:italic;
+    line-height:1.45;
+    text-align:center;
+    opacity:0;
+    transform:translateY(4px);
+    transition:opacity .35s ease,transform .35s ease;
+}
+
+.music-lyrics.visible{
+    opacity:1;
+    transform:translateY(0);
+}
+
+.page-number{
+    color:var(--muted);
+    font-size:12px;
+    min-width:50px;
+    text-align:center;
+}
+
+/* =====================================================
+CONFETTI
+===================================================== */
+
+.confetti{
+    position:fixed;
+    top:-20px;
+    z-index:100;
+    animation:confettiFall 3s linear forwards;
+}
+
+@keyframes confettiFall{
+    to{
+        transform:
+            translateY(110vh)
+            rotate(720deg);
+        opacity:0;
+    }
+}
+
+/* =====================================================
+MOBILE
+===================================================== */
+
+@media(max-width:600px){
+
+    .page{
+        padding:25px 14px 110px;
+    }
+
+    .card{
+        padding:20px;
+    }
+
+    .sticker{
+        width:65px;
+        height:65px;
+        font-size:32px;
+    }
+
+    .heart-game{
+        height:350px;
+    }
+
+    .cake{
+        transform:scale(.85);
+    }
+
+    .music-player{
+        width:calc(100% - 8px);
+        gap:6px;
+        padding:6px;
+    }
+
+    .music-cover{
+        width:28px;
+        height:28px;
+        flex-basis:28px;
+    }
+
+    .music-toggle{
+        width:28px;
+        height:28px;
+        flex-basis:28px;
+    }
+
+    .music-lyrics{
+        width:calc(100% - 8px);
+        font-size:10.5px;
+    }
+
+    .global-music-toggle{
+        top:10px;
+        right:12px;
+        width:38px;
+        height:38px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div id="decor"></div>
+
+<button
+class="global-music-toggle"
+id="globalMusicToggle"
+type="button"
+aria-label="Play birthday music"
+title="Play birthday music">
+▶
+</button>
+
+<div id="app">
+
+<!-- =====================================================
+PAGE 1 — PASSWORD
+===================================================== -->
+
+<section class="page active password-page">
+
+<div class="password-box">
+
+<div class="lock">🔐</div>
+
+<div class="logo">
+SECRET BIRTHDAY FILE
+</div>
+
+<h1 style="
+font-family:'Pacifico',cursive;
+font-size:clamp(38px,10vw,60px);
+background:linear-gradient(120deg,#fff,#ff72b6);
+-webkit-background-clip:text;
+color:transparent;
+">
+Hello Riddhika Jii 💗
+</h1>
+
+<p style="
+color:var(--muted);
+line-height:1.8;
+margin-top:15px;
+">
+This little world is locked.
+<br>
+Only the birthday girl gets access. 👀
+</p>
+
+<div class="pin-wrap">
+<div class="pin-label">ENTER THE SECRET PIN ✨</div>
+<div class="pin-dots" id="pinDots"><span></span><span></span><span></span><span></span></div>
+<input
+id="passwordInput"
+class="password-input"
+type="password"
+inputmode="numeric"
+maxlength="4"
+placeholder="••••"
+autocomplete="off"
+>
+<div class="pin-hint">A tiny secret stands between you & the surprises 💌</div>
+</div>
+
+<button
+class="main-btn"
+onclick="unlock()"
+>
+Unlock Birthday 🎀
+</button>
+
+<div
+id="passwordMessage"
+class="password-message">
+</div>
+
+<div class="sticker-row">
+
+<div class="sticker">🧸</div>
+<div class="sticker">🎀</div>
+<div class="sticker">🦋</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+PAGE 2 — INTRO
+===================================================== -->
+
+<section class="page">
+
+<div class="logo">
+PAGE 02 / 10
+</div>
+
+<div class="hero">
+
+<div class="hero-sticker">
+🎀
+</div>
+
+<div style="
+color:var(--pink);
+font-weight:700;
+letter-spacing:3px;
+font-size:12px;
+">
+18 • SEPTEMBER • 2026
+</div>
+
+<h1>
+Riddhika Jii
+</h1>
+
+<p>
+A normal "Happy Birthday" message would've been
+way too boring... so I made you a tiny birthday universe. 🌷
+</p>
+
+<div class="sticker-row">
+
+<div class="sticker">🧸</div>
+<div class="sticker">🎀</div>
+<div class="sticker">🦋</div>
+<div class="sticker">🐰</div>
+
+</div>
+
+<div class="countdown">
+
+<div class="timebox">
+<strong id="days">00</strong>
+<span>Days</span>
+</div>
+
+<div class="timebox">
+<strong id="hours">00</strong>
+<span>Hours</span>
+</div>
+
+<div class="timebox">
+<strong id="minutes">00</strong>
+<span>Minutes</span>
+</div>
+
+<div class="timebox">
+<strong id="seconds">00</strong>
+<span>Seconds</span>
+</div>
+
+</div>
+
+<p>
+🎁 Keep going... there are quite a few surprises.
+</p>
+
+<div
+class="music-player"
+id="musicPlayer"
+aria-label="Birthday music player">
+
+<img
+class="music-cover"
+src="ref12.jpg"
+alt="Riddhika Jii"
+onerror="this.style.display='none'">
+
+<div class="music-details">
+<div class="music-title">A little birthday song</div>
+<div class="music-status" id="musicStatus">Ready to play</div>
+<div class="music-timeline">
+<input
+class="music-progress"
+id="musicProgress"
+type="range"
+min="0"
+max="0"
+value="0"
+step="0.1"
+aria-label="Music timeline">
+<span class="music-time" id="musicTime">0:00 / 0:00</span>
+</div>
+</div>
+
+<button
+class="music-toggle"
+id="musicToggle"
+type="button"
+aria-label="Play birthday music"
+title="Play birthday music">
+▶
+</button>
+
+<audio
+id="birthdayMusic"
+src="randiiraj.mp3"
+loop>
+</audio>
+</div>
+
+<div
+class="music-lyrics"
+id="musicLyrics"
+aria-live="polite"></div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+PAGE 3 — PHOTO
+===================================================== -->
+
+<section class="page">
+
+<div class="logo">
+PAGE 03 / 10
+</div>
+
+<div class="title">
+
+<h2>
+One Cute Memory 📸
+</h2>
+
+<p>
+A little polaroid moment for the birthday girl.
+</p>
+
+</div>
+
+<div class="polaroid-wrap">
+
+<div class="polaroid">
+
+<img
+src="ref3.jpg"
+alt="Riddhika Jii"
+onerror="
+this.style.display='none';
+document.getElementById('photoFallback').style.display='flex';
+"
+>
+
+<div
+id="photoFallback"
+style="
+display:none;
+aspect-ratio:1;
+background:#f0edf2;
+align-items:center;
+justify-content:center;
+text-align:center;
+font-size:50px;
+">
+📸
+</div>
+
+<div class="polaroid-caption">
+Riddhika Jii ✨
+</div>
+
+</div>
+
+</div>
+
+<div class="card center">
+
+<p style="
+color:var(--muted);
+line-height:1.8;
+">
+Some pictures are just pictures...
+and some somehow become little memories. 🦋
+</p>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+PAGE 4 — LETTER
+===================================================== -->
+
+<section class="page">
+
+<div class="logo">
+PAGE 04 / 10
+</div>
+
+<div class="title">
+
+<h2>
+Okay... one little thing 💌
+</h2>
+
+<p>
+Don't overthink this. 👀
+</p>
+
+</div>
+
+<div class="card">
+
+<div class="sticker-row">
+
+<div class="sticker">🥹</div>
+<div class="sticker">💗</div>
+<div class="sticker">🦋</div>
+
+</div>
+
+<div class="letter">
+
+<p>
+You know what's funny?
+Some people just casually enter your life...
+</p>
+
+<br>
+
+<p>
+...and somehow they become the person you notice
+a little more than everyone else.
+</p>
+
+<br>
+
+<p>
+Maybe it's their smile.
+Maybe it's their vibe.
+Maybe it's the random conversations.
+Or maybe it's just something you can't really explain.
+</p>
+
+<br>
+
+<p>
+Anyway, today is your day.
+So here's a simple wish:
+may this year bring you happiness,
+good memories, peaceful days and lots of reasons to smile.
+</p>
+
+<br>
+
+<p>
+And yes...
+there may or may not be someone secretly smiling
+while making this entire website. 😶‍🌫️
+</p>
+
+<br>
+
+<p style="text-align:right">
+— from someone who probably says less than he feels. 💗
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+PAGE 5 — PICKUP LINES
+===================================================== -->
+
+<section class="page">
+
+<div class="logo">
+PAGE 05 / 10
+</div>
+
+<div class="title">
+
+<h2>
+Pickup Line Department 💘
+</h2>
+
+<p>
+Tap a card to reveal it.
+</p>
+
+</div>
+
+<div
+class="pickup-grid"
+id="pickupGrid">
+</div>
+
+</section>
+
+
+<!-- =====================================================
+PAGE 7 — POLITICAL QUIZ
+===================================================== -->
+
+<section class="page">
+
+<div class="logo">
+PAGE 06 / 9
+</div>
+
+<div class="title">
+
+<h2>
+Political Brain 🧠🏛️
+</h2>
+
+<p>
+Because apparently politics deserves a place in the birthday website too. 😭
+</p>
+
+</div>
+
+<div class="card">
+
+<div class="progress">
+<div
+class="progress-bar"
+id="quizProgress">
+</div>
+</div>
+
+<div id="quizBox">
+
+<div
+class="question"
+id="question">
+Loading...
+</div>
+
+<div id="answers"></div>
+
+</div>
+
+<div
+class="quiz-result"
+id="quizResult">
+
+<div style="font-size:65px">
+🏛️
+</div>
+
+<h2 id="quizScore"></h2>
+
+<p style="
+color:var(--muted);
+margin-top:10px;
+">
+Political knowledge checked.
+Birthday status: still 10/10. 😌
+</p>
+
+<button
+class="main-btn"
+onclick="restartQuiz()">
+Try Again
+</button>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+PAGE 7 — BIRTHDAY TREASURE HUNT
+===================================================== -->
+
+<section class="page">
+
+<div class="logo">
+PAGE 07 / 9
+</div>
+
+<div class="title">
+
+<h2>
+Birthday Treasure Hunt 🎁
+</h2>
+
+<p>
+One box has the surprise. Can you find it? 👀
+</p>
+
+</div>
+
+<div class="card">
+
+<div class="treasure-score">
+<span>🏆 Found: <b id="treasureScore">0</b></span>
+<span>🎯 Round: <b id="treasureRound">1</b> / 3</span>
+</div>
+
+<div class="treasure-game">
+
+<p class="treasure-intro">
+Pick one mystery box. Choose wisely... only one has the birthday treasure! ✨
+</p>
+
+<div class="treasure-cards" id="treasureCards">
+<button class="treasure-card" onclick="pickTreasure(0)">🎁</button>
+<button class="treasure-card" onclick="pickTreasure(1)">🎁</button>
+<button class="treasure-card" onclick="pickTreasure(2)">🎁</button>
+</div>
+
+<div class="treasure-message" id="treasureMessage">
+Your mission starts now. 😌
+</div>
+
+<div class="center">
+<button
+class="main-btn"
+id="treasureStart"
+onclick="startTreasureGame()">
+Start Treasure Hunt 🎮
+</button>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+PAGE 9 — CAKE
+===================================================== -->
+
+<section class="page">
+
+<div class="logo">
+PAGE 08 / 9
+</div>
+
+<div class="title">
+
+<h2>
+Make A Wish 🎂
+</h2>
+
+<p>
+Tap every candle to blow it out.
+</p>
+
+</div>
+
+<div class="card">
+
+<div class="cake-area">
+
+<div class="cake">
+
+<div class="cake-top"></div>
+
+<div class="cream"></div>
+
+<div class="drip drip1"></div>
+<div class="drip drip2"></div>
+<div class="drip drip3"></div>
+
+<div class="cake-body"></div>
+
+<div
+class="candle candle1"
+onclick="blowCandle(this)">
+<div class="flame"></div>
+<div class="smoke">☁️</div>
+</div>
+
+<div
+class="candle candle2"
+onclick="blowCandle(this)">
+<div class="flame"></div>
+<div class="smoke">☁️</div>
+</div>
+
+<div
+class="candle candle3"
+onclick="blowCandle(this)">
+<div class="flame"></div>
+<div class="smoke">☁️</div>
+</div>
+
+</div>
+
+<div
+class="cake-message"
+id="cakeMessage">
+🎂 Tap the candles, Riddhika Jii.
+<br>
+Make a wish. ✨
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+PAGE 10 — FINAL
+===================================================== -->
+
+<section class="page">
+
+<div class="logo">
+FINAL PAGE / 9
+</div>
+
+<div class="final">
+
+<div class="final-gift">
+🎁
+</div>
+
+<div class="sticker-row">
+
+<div class="sticker">🐻</div>
+<div class="sticker">💗</div>
+<div class="sticker">🌷</div>
+
+</div>
+
+<h2>
+Happy Birthday,
+<br>
+Riddhika Jii! 💗
+</h2>
+
+<p>
+
+May this year bring you
+beautiful memories,
+peaceful days,
+crazy laughs,
+good people,
+and many reasons to be proud of yourself.
+
+<br><br>
+
+And maybe...
+a few unexpected little moments
+that make you smile for no reason. 👀
+
+<br><br>
+
+Thank you for simply being you.
+
+<br><br>
+
+<b>
+Have the happiest birthday. 🎀✨
+</b>
+
+</p>
+
+<button
+class="main-btn"
+onclick="celebrate()">
+Open Final Surprise 🎉
+</button>
+
+<div
+id="finalSurprise"
+style="
+display:none;
+margin-top:25px;
+font-weight:700;
+line-height:1.9;
+">
+
+Okay...
+you actually reached the end. 🥹
+
+<br><br>
+
+🎀 <b>Official Birthday Certificate</b> 🎀
+
+<br>
+
+🏆 Certified Cute Human
+<br>
+✨ Valid for the next 365 days
+<br>
+💗 No refunds. No exchanges.
+
+<br><br>
+
+And one final thing...
+
+<br>
+
+<b>
+Stay happy, Riddhika Jii. Always. 🌷
+</b>
+
+</div>
+
+</div>
+
+</section>
+
+</div>
+
+
+<!-- =====================================================
+NAVIGATION
+===================================================== -->
+
+<div
+class="navigation"
+id="navigation"
+style="display:none;">
+
+<button
+class="nav-btn"
+id="prevBtn"
+onclick="changePage(-1)">
+← Previous
+</button>
+
+<div class="page-number">
+<span id="currentPage">2</span> / 9
+</div>
+
+<button
+class="nav-btn next"
+id="nextBtn"
+onclick="changePage(1)">
+Next →
+</button>
+
+</div>
+
+
+<script>
+
+/* =====================================================
+DECOR
+===================================================== */
+
+const decor=document.getElementById("decor");
+
+const cuteThings=[
+    "💗",
+    "✨",
+    "🎀",
+    "🦋",
+    "🌷",
+    "💕",
+    "⭐",
+    "🧸",
+    "🌸",
+    "💫"
+];
+
+for(let i=0;i<35;i++){
+
+    const item=document.createElement("div");
+
+    item.className="float";
+
+    item.textContent=
+        cuteThings[
+            Math.floor(
+                Math.random()*cuteThings.length
+            )
+        ];
+
+    item.style.left=
+        Math.random()*100+"%";
+
+    item.style.fontSize=
+        (15+Math.random()*20)+"px";
+
+    item.style.animationDuration=
+        (7+Math.random()*10)+"s";
+
+    item.style.animationDelay=
+        (-Math.random()*15)+"s";
+
+    decor.appendChild(item);
+}
+
+
+/* =====================================================
+PASSWORD
+===================================================== */
+
+let unlocked=false;
+
+const musicPlayer =
+    document.getElementById("musicPlayer");
+
+const birthdayMusic =
+    document.getElementById("birthdayMusic");
+
+const musicToggle =
+    document.getElementById("musicToggle");
+
+const globalMusicToggle =
+    document.getElementById("globalMusicToggle");
+
+const musicStatus =
+    document.getElementById("musicStatus");
+
+const musicProgress =
+    document.getElementById("musicProgress");
+
+const musicTime =
+    document.getElementById("musicTime");
+
+const musicLyrics =
+    document.getElementById("musicLyrics");
+
+const lyricLines = [
+    {time:0, text:"Today is yours, let the whole sky glow ✨"},
+    {time:8, text:"Keep this little smile wherever you go 💗"},
+    {time:16, text:"Every bright moment is waiting for you 🌷"},
+    {time:24, text:"A tiny birthday wish, warm and true 🎀"}
+];
+
+let activeLyric=-1;
+let lyricTimer=null;
+
+function formatMusicTime(seconds){
+    if(!Number.isFinite(seconds) || seconds<0){
+        return "0:00";
+    }
+
+    const minutes=Math.floor(seconds/60);
+    const remainingSeconds=Math.floor(seconds%60);
+
+    return minutes+":"+
+        String(remainingSeconds).padStart(2,"0");
+}
+
+function renderLyric(index){
+    clearTimeout(lyricTimer);
+    musicLyrics.classList.remove("visible");
+
+    lyricTimer=setTimeout(()=>{
+        if(index!==activeLyric) return;
+
+        musicLyrics.textContent=
+            index>=0 && lyricLines[index]
+                ? lyricLines[index].text
+                : "";
+
+        if(index>=0){
+            requestAnimationFrame(()=>{
+                musicLyrics.classList.add("visible");
+            });
+        }
+    },120);
+}
+
+function updateMusicTimeline(){
+    const duration=Number.isFinite(birthdayMusic.duration)
+        ? birthdayMusic.duration
+        : 0;
+
+    const current=Number.isFinite(birthdayMusic.currentTime)
+        ? birthdayMusic.currentTime
+        : 0;
+
+    musicProgress.max=duration;
+    musicProgress.value=Math.min(current,duration||current);
+    musicTime.textContent=
+        formatMusicTime(current)+" / "+formatMusicTime(duration);
+
+    let lyricIndex=-1;
+
+    for(let index=0;index<lyricLines.length;index++){
+        if(current>=lyricLines[index].time){
+            lyricIndex=index;
+        }else{
+            break;
+        }
+    }
+
+    if(lyricIndex!==activeLyric){
+        activeLyric=lyricIndex;
+        renderLyric(lyricIndex);
+    }
+}
+
+function setMusicState(isPlaying){
+    const icon=isPlaying?"❚❚":"▶";
+    musicToggle.textContent=icon;
+    globalMusicToggle.textContent=icon;
+
+    const label=isPlaying
+        ? "Pause birthday music"
+        : "Play birthday music";
+
+    musicToggle.setAttribute("aria-label",label);
+    musicToggle.title=label;
+    globalMusicToggle.setAttribute("aria-label",label);
+    globalMusicToggle.title=label;
+    musicStatus.textContent=isPlaying
+        ? "Now playing"
+        : "Music paused";
+}
+
+function playBirthdayMusic(){
+    birthdayMusic.play()
+        .then(()=>{
+            setMusicState(true);
+            updateMusicTimeline();
+        })
+        .catch(()=>{
+            setMusicState(false);
+            musicStatus.textContent=birthdayMusic.error
+                ? "Could not load raj.mp3"
+                : "Tap ▶ to play music";
+        });
+}
+
+function showMusicPlayer(){
+    musicPlayer.classList.add("visible");
+    updateMusicTimeline();
+    playBirthdayMusic();
+}
+
+function toggleMusic(){
+    if(birthdayMusic.paused){
+        playBirthdayMusic();
+    }else{
+        birthdayMusic.pause();
+        setMusicState(false);
+    }
+}
+
+musicToggle.addEventListener("click",toggleMusic);
+globalMusicToggle.addEventListener("click",toggleMusic);
+
+birthdayMusic.addEventListener("play",()=>setMusicState(true));
+birthdayMusic.addEventListener("pause",()=>{
+    if(!birthdayMusic.ended) setMusicState(false);
+});
+birthdayMusic.addEventListener("ended",()=>{
+    setMusicState(false);
+    activeLyric=-1;
+    renderLyric(-1);
+    updateMusicTimeline();
+});
+birthdayMusic.addEventListener("loadedmetadata",updateMusicTimeline);
+birthdayMusic.addEventListener("durationchange",updateMusicTimeline);
+birthdayMusic.addEventListener("timeupdate",updateMusicTimeline);
+birthdayMusic.addEventListener("error",()=>{
+    setMusicState(false);
+    musicStatus.textContent="Could not load raj.mp3";
+    musicLyrics.classList.remove("visible");
+    musicLyrics.textContent="";
+});
+
+musicProgress.addEventListener("input",()=>{
+    if(Number.isFinite(birthdayMusic.duration)){
+        birthdayMusic.currentTime=Number(musicProgress.value);
+        updateMusicTimeline();
+    }
+});
+
+function unlock(){
+
+    const input=
+        document.getElementById("passwordInput");
+
+    const message=
+        document.getElementById("passwordMessage");
+
+    if(input.value==="1809"){
+
+        unlocked=true;
+
+        showMusicPlayer();
+
+        message.style.color="#65e6aa";
+        message.textContent=
+            "Access granted. Welcome, birthday girl. 💗";
+
+        setTimeout(()=>{
+
+            currentPage=1;
+
+            document.getElementById("navigation")
+                .style.display="flex";
+
+            updatePage();
+
+        },700);
+
+    }else{
+
+        message.style.color="#ff668f";
+        message.textContent=
+            "Hmm... wrong password. Try again 👀";
+
+        input.classList.remove("shake");
+
+        void input.offsetWidth;
+
+        input.classList.add("shake");
+
+        input.value="";
+    }
+}
+
+const pinInput=document.getElementById("passwordInput");
+const pinDots=document.querySelectorAll("#pinDots span");
+pinInput.addEventListener("input",()=>{
+    pinDots.forEach((dot,index)=>dot.classList.toggle("filled",index < pinInput.value.length));
+});
+
+pinInput
+.addEventListener("keydown",e=>{
+
+    if(e.key==="Enter"){
+        unlock();
+    }
+
+});
+
+
+/* =====================================================
+PAGE SYSTEM
+===================================================== */
+
+let currentPage=1;
+
+const pages=
+    document.querySelectorAll(".page");
+
+function updatePage(){
+
+    pages.forEach((page,index)=>{
+
+        page.classList.toggle(
+            "active",
+            index===currentPage
+        );
+
+    });
+
+    document.getElementById("currentPage")
+        .textContent=currentPage+1;
+
+    document.getElementById("prevBtn")
+        .disabled=currentPage===1;
+
+    document.getElementById("nextBtn")
+        .disabled=currentPage===pages.length-1;
+
+    globalMusicToggle.classList.toggle(
+        "visible",
+        unlocked && currentPage!==0
+    );
+
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
+}
+
+function changePage(direction){
+
+    if(!unlocked) return;
+
+    const next=currentPage+direction;
+
+    if(next<1 || next>=pages.length){
+        return;
+    }
+
+    currentPage=next;
+
+    updatePage();
+}
+
+
+/* =====================================================
+COUNTDOWN
+===================================================== */
+
+const birthdayDate=
+new Date("September 18, 2026 00:00:00").getTime();
+
+function updateCountdown(){
+
+    const now=new Date().getTime();
+
+    let distance=
+        birthdayDate-now;
+
+    if(distance<0){
+        distance=0;
+    }
+
+    const days=
+        Math.floor(
+            distance/(1000*60*60*24)
+        );
+
+    const hours=
+        Math.floor(
+            (distance%(1000*60*60*24))/
+            (1000*60*60)
+        );
+
+    const minutes=
+        Math.floor(
+            (distance%(1000*60*60))/
+            (1000*60)
+        );
+
+    const seconds=
+        Math.floor(
+            (distance%(1000*60))/
+            1000
+        );
+
+    document.getElementById("days")
+        .textContent=
+        String(days).padStart(2,"0");
+
+    document.getElementById("hours")
+        .textContent=
+        String(hours).padStart(2,"0");
+
+    document.getElementById("minutes")
+        .textContent=
+        String(minutes).padStart(2,"0");
+
+    document.getElementById("seconds")
+        .textContent=
+        String(seconds).padStart(2,"0");
+}
+
+setInterval(updateCountdown,1000);
+
+updateCountdown();
+
+
+/* =====================================================
+PICKUP LINES
+===================================================== */
+
+const pickupLines=[
+
+{
+emoji:"🦋",
+title:"Scientific Problem",
+text:
+"I was going to write a normal birthday wish... but then you happened and my concentration disappeared."
+},
+
+{
+emoji:"🎀",
+title:"Tiny Question",
+text:
+"Is it your birthday or did you just need another excuse to be this adorable?"
+},
+
+{
+emoji:"🧸",
+title:"Very Important",
+text:
+"If birthdays came with wishes, I hope one of yours is that you always have someone quietly cheering for you."
+},
+
+{
+emoji:"🌷",
+title:"Plot Twist",
+text:
+"I came here to wish you happy birthday. Somehow I ended up making an entire website. Suspicious."
+},
+
+{
+emoji:"👀",
+title:"No Pressure",
+text:
+"You're not my favourite notification... but you're definitely somewhere near the top."
+},
+
+{
+emoji:"💗",
+title:"Last One",
+text:
+"If making you smile was a subject, I'd probably be trying very hard to pass."
+}
+
+];
+
+const pickupGrid=
+document.getElementById("pickupGrid");
+
+pickupLines.forEach(line=>{
+
+    const card=
+        document.createElement("div");
+
+    card.className="pickup";
+
+    card.innerHTML=`
+
+        <div class="emoji">
+            ${line.emoji}
+        </div>
+
+        <h3>
+            ${line.title}
+        </h3>
+
+        <p>
+            ${line.text}
+        </p>
+
+        <small>
+            TAP TO REVEAL 💌
+        </small>
+    `;
+
+    card.onclick=()=>{
+        card.classList.toggle("revealed");
+    };
+
+    pickupGrid.appendChild(card);
+
+});
+
+
+/* =====================================================
+POLITICAL QUIZ
+===================================================== */
+
+const quizQuestions=[
+
+{
+q:"What is the supreme law of India?",
+options:[
+"The Constitution of India",
+"The Parliament Act",
+"The Election Code",
+"The Supreme Court"
+],
+answer:0
+},
+
+{
+q:"How many houses does the Parliament of India have?",
+options:[
+"One",
+"Two",
+"Three",
+"Four"
+],
+answer:1
+},
+
+{
+q:"Which house is known as the House of the People?",
+options:[
+"Rajya Sabha",
+"Lok Sabha",
+"Vidhan Sabha",
+"Legislative Council"
+],
+answer:1
+},
+
+{
+q:"What is the minimum voting age in India?",
+options:[
+"16",
+"17",
+"18",
+"21"
+],
+answer:2
+},
+
+{
+q:"Which is the highest court in India?",
+options:[
+"High Court",
+"District Court",
+"Supreme Court",
+"Parliament"
+],
+answer:2
+},
+
+{
+q:"Rajya Sabha is also known as the...",
+options:[
+"Council of States",
+"House of People",
+"National Court",
+"People's Assembly"
+],
+answer:0
+}
+
+];
+
+let quizIndex=0;
+let quizPoints=0;
+
+function loadQuiz(){
+
+    const q=
+        quizQuestions[quizIndex];
+
+    document.getElementById("question")
+        .textContent=q.q;
+
+    const answers=
+        document.getElementById("answers");
+
+    answers.innerHTML="";
+
+    q.options.forEach((option,index)=>{
+
+        const button=
+            document.createElement("button");
+
+        button.className="choice";
+
+        button.textContent=option;
+
+        button.onclick=()=>{
+            answerQuiz(index,button);
+        };
+
+        answers.appendChild(button);
+
+    });
+
+    document.getElementById("quizProgress")
+        .style.width=
+        (quizIndex/quizQuestions.length)*100+"%";
+}
+
+function answerQuiz(index,button){
+
+    const correct=
+        quizQuestions[quizIndex].answer;
+
+    const all=
+        document.querySelectorAll(".choice");
+
+    all.forEach(btn=>{
+        btn.disabled=true;
+    });
+
+    if(index===correct){
+
+        button.classList.add("correct");
+        quizPoints++;
+
+    }else{
+
+        button.classList.add("wrong");
+
+        all[correct]
+            .classList.add("correct");
+
+    }
+
+    setTimeout(()=>{
+
+        quizIndex++;
+
+        if(quizIndex<quizQuestions.length){
+
+            loadQuiz();
+
+        }else{
+
+            document.getElementById("quizBox")
+                .style.display="none";
+
+            document.getElementById("quizResult")
+                .style.display="block";
+
+            document.getElementById("quizScore")
+                .textContent=
+                quizPoints+
+                " / "+
+                quizQuestions.length;
+
+            document.getElementById("quizProgress")
+                .style.width="100%";
+
+        }
+
+    },800);
+}
+
+function restartQuiz(){
+
+    quizIndex=0;
+    quizPoints=0;
+
+    document.getElementById("quizBox")
+        .style.display="block";
+
+    document.getElementById("quizResult")
+        .style.display="none";
+
+    loadQuiz();
+}
+
+loadQuiz();
+
+
+/* =====================================================
+BIRTHDAY TREASURE HUNT
+===================================================== */
+
+let treasureRound=1;
+let treasureScore=0;
+let treasureRunning=false;
+let treasureTarget=0;
+let treasureLocked=false;
+
+function startTreasureGame(){
+
+    treasureRound=1;
+    treasureScore=0;
+    treasureRunning=true;
+    treasureLocked=false;
+
+    document.getElementById("treasureScore")
+        .textContent=treasureScore;
+
+    document.getElementById("treasureRound")
+        .textContent=treasureRound;
+
+    document.getElementById("treasureStart")
+        .textContent="Choose Your Box 🎁";
+
+    setupTreasureRound();
+}
+
+function setupTreasureRound(){
+
+    treasureLocked=false;
+
+    const cards=
+        document.querySelectorAll(".treasure-card");
+
+    cards.forEach(card=>{
+        card.disabled=false;
+        card.classList.remove("open");
+        card.textContent="🎁";
+    });
+
+    treasureTarget=
+        Math.floor(Math.random()*3);
+
+    document.getElementById("treasureMessage")
+        .textContent=
+        "Hmm... which one is hiding the surprise? 👀";
+}
+
+function pickTreasure(index){
+
+    if(!treasureRunning || treasureLocked) return;
+
+    treasureLocked=true;
+
+    const cards=
+        document.querySelectorAll(".treasure-card");
+
+    cards.forEach(card=>{
+        card.disabled=true;
+    });
+
+    cards[index].classList.add("open");
+
+    if(index===treasureTarget){
+
+        treasureScore++;
+
+        cards[index].textContent="💎";
+
+        document.getElementById("treasureScore")
+            .textContent=treasureScore;
+
+        document.getElementById("treasureMessage")
+            .textContent=
+            "YOU FOUND IT! 🎉✨ That's the birthday treasure!";
+
+    }else{
+
+        cards[index].textContent="🌸";
+        cards[treasureTarget].textContent="💎";
+
+        document.getElementById("treasureMessage")
+            .textContent=
+            "So close! 😭 The treasure was hiding here. 💎";
+    }
+
+    setTimeout(()=>{
+
+        if(treasureRound<3){
+
+            treasureRound++;
+
+            document.getElementById("treasureRound")
+                .textContent=treasureRound;
+
+            setupTreasureRound();
+
+        }else{
+
+            finishTreasureGame();
+        }
+
+    },1100);
+}
+
+function finishTreasureGame(){
+
+    treasureRunning=false;
+
+    document.querySelectorAll(".treasure-card")
+        .forEach(card=>{
+            card.disabled=true;
+        });
+
+    const message=
+        document.getElementById("treasureMessage");
+
+    if(treasureScore===3){
+
+        message.innerHTML=
+            "🏆 PERFECT 3/3!<br>Okay Riddhika Jii... treasure hunter level: LEGENDARY. 💗";
+
+    }else if(treasureScore===2){
+
+        message.innerHTML=
+            "✨ 2/3! Pretty impressive.<br>The birthday treasure clearly wanted to be found by you. 🎁";
+
+    }else if(treasureScore===1){
+
+        message.innerHTML=
+            "🎀 1/3! At least one treasure found.<br>Mission partially successful. 😭💗";
+
+    }else{
+
+        message.innerHTML=
+            "😭 0/3! The treasure won this round.<br>But hey... you still get the birthday surprise. 🎁💗";
+    }
+
+    document.getElementById("treasureStart")
+        .disabled=false;
+
+    document.getElementById("treasureStart")
+        .textContent="Play Again 🔄";
+}
+
+/* =====================================================
+CAKE
+===================================================== */
+
+let candlesOff=0;
+
+function blowCandle(candle){
+
+    if(candle.classList.contains("off")){
+        return;
+    }
+
+    candle.classList.add("off");
+
+    candlesOff++;
+
+    if(candlesOff===3){
+
+        document.getElementById("cakeMessage")
+            .innerHTML=`
+            🎉 All candles are out!
+            <br><br>
+            Make that birthday wish, Riddhika Jii. ✨
+            <br>
+            <b>Happy Birthday! 💗</b>
+            `;
+
+        celebrate();
+    }
+}
+
+
+/* =====================================================
+FINAL CONFETTI
+===================================================== */
+
+function celebrate(){
+
+    const symbols=[
+        "💗",
+        "✨",
+        "🎀",
+        "🌸",
+        "🦋",
+        "⭐",
+        "💕"
+    ];
+
+    for(let i=0;i<100;i++){
+
+        const c=
+            document.createElement("div");
+
+        c.className="confetti";
+
+        c.textContent=
+            symbols[
+                Math.floor(
+                    Math.random()*symbols.length
+                )
+            ];
+
+        c.style.left=
+            Math.random()*100+"vw";
+
+        c.style.fontSize=
+            (10+Math.random()*18)+"px";
+
+        c.style.animationDuration=
+            (2+Math.random()*3)+"s";
+
+        c.style.animationDelay=
+            Math.random()+"s";
+
+        document.body.appendChild(c);
+
+        setTimeout(()=>{
+            c.remove();
+        },5000);
+
+    }
+
+    const final=
+        document.getElementById("finalSurprise");
+
+    if(final){
+        final.style.display="block";
+    }
+}
+
+
+/* =====================================================
+BIRTHDAY DASH GAME
+===================================================== */
+(function(){
+  const world=document.getElementById("runnerWorld");
+  const player=document.getElementById("playerRunner");
+  const start=document.getElementById("runnerStart");
+  const over=document.getElementById("runnerGameOver");
+  const startBtn=document.getElementById("runnerStartBtn");
+  const restartBtn=document.getElementById("runnerRestartBtn");
+  const scoreEl=document.getElementById("runnerScore");
+  const finalEl=document.getElementById("runnerFinalScore");
+  const speedEl=document.getElementById("runnerSpeed");
+  const leftBtn=document.getElementById("leftBtn");
+  const rightBtn=document.getElementById("rightBtn");
+  const jumpBtn=document.getElementById("jumpBtn");
+
+  if(!world) return;
+
+  let lane=1, jumping=false, running=false, score=0, speed=1;
+  let obstacleTimer=null, scoreTimer=null, raf=null;
+
+  function setLane(){
+    const lanes=["24%","42%","60%"];
+    player.style.left=lanes[lane];
+  }
+
+  function move(dir){
+    if(!running) return;
+    lane=Math.max(0,Math.min(2,lane+dir));
+    setLane();
+  }
+
+  function jump(){
+    if(!running || jumping) return;
+    jumping=true;
+    player.classList.add("jump");
+    setTimeout(()=>{
+      player.classList.remove("jump");
+      jumping=false;
+    },520);
+  }
+
+  function spawnObstacle(){
+    if(!running) return;
+    const o=document.createElement("div");
+    o.className="runner-obstacle";
+    o.textContent=Math.random()>.5 ? "🚧" : "🪨";
+    o.dataset.lane=String(Math.floor(Math.random()*3));
+    o.style.top=["51%","66%","81%"][Number(o.dataset.lane)];
+    world.appendChild(o);
+
+    let x=world.clientWidth+30;
+    const travel=world.clientWidth+100;
+    const duration=Math.max(900,1800-speed*130);
+    const startTime=performance.now();
+
+    function animate(t){
+      if(!running){o.remove();return;}
+      const p=Math.min(1,(t-startTime)/duration);
+      x=world.clientWidth+30-travel*p;
+      o.style.left=x+"px";
+
+      const pr=player.getBoundingClientRect();
+      const or=o.getBoundingClientRect();
+      const sameLane=Number(o.dataset.lane)===lane;
+      const close=Math.abs((pr.left+pr.width/2)-(or.left+or.width/2))<38;
+      const vertical=Math.abs((pr.top+pr.height/2)-(or.top+or.height/2))<48;
+
+      if(sameLane && close && vertical && !jumping){
+        endGame();
+        o.remove();
+        return;
+      }
+
+      if(p<1) raf=requestAnimationFrame(animate);
+      else o.remove();
+    }
+    raf=requestAnimationFrame(animate);
+  }
+
+  function startGame(){
+    clearInterval(obstacleTimer);
+    clearInterval(scoreTimer);
+    if(raf) cancelAnimationFrame(raf);
+    world.querySelectorAll(".runner-obstacle").forEach(x=>x.remove());
+    lane=1; score=0; speed=1; jumping=false; running=true;
+    player.classList.remove("jump");
+    setLane();
+    scoreEl.textContent="0"; speedEl.textContent="1";
+    start.style.display="none"; over.style.display="none";
+    obstacleTimer=setInterval(spawnObstacle,1100);
+    scoreTimer=setInterval(()=>{
+      if(!running) return;
+      score++;
+      speed=Math.min(8,1+Math.floor(score/12));
+      scoreEl.textContent=score;
+      speedEl.textContent=speed;
+    },650);
+  }
+
+  function endGame(){
+    if(!running) return;
+    running=false;
+    clearInterval(obstacleTimer);
+    clearInterval(scoreTimer);
+    if(raf) cancelAnimationFrame(raf);
+    world.querySelectorAll(".runner-obstacle").forEach(x=>x.remove());
+    finalEl.textContent=score;
+    over.style.display="flex";
+  }
+
+  startBtn.addEventListener("click",startGame);
+  restartBtn.addEventListener("click",startGame);
+  leftBtn.addEventListener("click",()=>move(-1));
+  rightBtn.addEventListener("click",()=>move(1));
+  jumpBtn.addEventListener("click",jump);
+
+  world.addEventListener("keydown",e=>{
+    if(e.key==="ArrowLeft"){e.preventDefault();move(-1)}
+    if(e.key==="ArrowRight"){e.preventDefault();move(1)}
+    if(e.key==="ArrowUp" || e.code==="Space"){e.preventDefault();jump()}
+  });
+  world.tabIndex=0;
+  world.addEventListener("click",()=>world.focus());
+
+  // Make the controls comfortable for touch without requiring a long press.
+  ["touchstart"].forEach(evt=>{
+    leftBtn.addEventListener(evt,e=>{e.preventDefault();move(-1)},{passive:false});
+    rightBtn.addEventListener(evt,e=>{e.preventDefault();move(1)},{passive:false});
+    jumpBtn.addEventListener(evt,e=>{e.preventDefault();jump()},{passive:false});
+  });
+})();
+
+/* =====================================================
+KEYBOARD
+===================================================== */
+
+document.addEventListener("keydown",e=>{
+
+    if(!unlocked) return;
+
+    if(e.key==="ArrowRight"){
+        changePage(1);
+    }
+
+    if(e.key==="ArrowLeft"){
+        changePage(-1);
+    }
+
+});
+
+</script>
+
+</body>
+</html>
+
+```
