@@ -745,7 +745,7 @@ CAKE
     height:100%;
     object-fit:contain;
     opacity:1;
-    transition:opacity .28s ease,transform .28s ease;
+    transition:opacity .09s ease,transform .09s ease;
 }
 
 .cake-image.changing{
@@ -1596,7 +1596,7 @@ PAGE 06 / 9
 <div class="title">
 
 <h2>
-Some questions 🧠
+Power Play 🧠
 </h2>
 
 <p>
@@ -1655,7 +1655,7 @@ Try Again
 </div>
 
 <div class="page-gate" id="quizGate">
-Complete Some questionS to go to the next page 🧠
+Complete Power Play to go to the next page 🧠
 </div>
 
 </section>
@@ -2646,8 +2646,8 @@ function answerQuiz(index,button){
             updateCompletionGate(
                 "quizGate",
                 true,
-                "Some question complete! You can go to the next page ✨",
-                "Complete Some question to go to the next page 🧠"
+                "Power Play complete! You can go to the next page ✨",
+                "Complete Power Play to go to the next page 🧠"
             );
             updatePage();
 
@@ -2665,8 +2665,8 @@ function restartQuiz(){
     updateCompletionGate(
         "quizGate",
         false,
-        "Some questions complete! You can go to the next page ✨",
-        "Complete Some questions to go to the next page 🧠"
+        "Power Play complete! You can go to the next page ✨",
+        "Complete Power Play to go to the next page 🧠"
     );
 
     document.getElementById("quizBox")
@@ -2854,6 +2854,11 @@ let cakeCompleted=false;
 const cakeImage=document.querySelector(".cake-image");
 const cakeBirthdayText=document.getElementById("cakeBirthdayText");
 
+["0","1","2","3"].forEach(imageNumber=>{
+    const image=new Image();
+    image.src=imageNumber+"-Photoroom.png";
+});
+
 function updateCakeImage(imageNumber){
 
     cakeImage.classList.add("changing");
@@ -2861,7 +2866,7 @@ function updateCakeImage(imageNumber){
     setTimeout(()=>{
         cakeImage.src=imageNumber+"-Photoroom.png";
         cakeImage.classList.remove("changing");
-    },140);
+    },40);
 }
 
 function launchCrackers(){
@@ -3159,4 +3164,4 @@ document.addEventListener("keydown",e=>{
 </body>
 </html>
 
-
+```
