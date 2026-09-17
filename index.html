@@ -2244,7 +2244,7 @@ let currentPage=1;
 const pages=
     document.querySelectorAll(".page");
 
-function updatePage(){
+function updatePage({ scrollToTop = true } = {}){
 
     pages.forEach((page,index)=>{
 
@@ -2271,10 +2271,12 @@ function updatePage(){
         unlocked && currentPage!==0
     );
 
-    window.scrollTo({
-        top:0,
-        behavior:"smooth"
-    });
+    if(scrollToTop){
+        window.scrollTo({
+            top:0,
+            behavior:"smooth"
+        });
+    }
 }
 
 function changePage(direction){
@@ -2448,7 +2450,7 @@ pickupLines.forEach(line=>{
             "All facts revealed! You can go to the next page ✨",
             "Reveal all facts to go to the next page 💌"
         );
-        updatePage();
+        updatePage({ scrollToTop: false });
     };
 
     pickupGrid.appendChild(card);
@@ -2649,7 +2651,7 @@ function answerQuiz(index,button){
                 "Some questions complete! You can go to the next page ✨",
                 "Complete Some questions to go to the next page 🧠"
             );
-            updatePage();
+            updatePage({ scrollToTop: false });
 
         }
 
@@ -2842,7 +2844,7 @@ function finishTreasureGame(){
         "Treasure Hunt complete! You can go to the next page ✨",
         "Finish all 3 rounds to go to the next page 🎁"
     );
-    updatePage();
+    updatePage({ scrollToTop: false });
 }
 
 /* =====================================================
@@ -2941,7 +2943,7 @@ function blowCandle(candle){
             "Wish made! You can go to the next page ✨",
             "Blow out all candles to go to the next page 🎂"
         );
-        updatePage();
+        updatePage({ scrollToTop: false });
 
         celebrate();
     }
@@ -3164,4 +3166,4 @@ document.addEventListener("keydown",e=>{
 </body>
 </html>
 
-```
+
