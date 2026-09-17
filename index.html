@@ -128,6 +128,38 @@ h1,h2{
     font-family:"Pacifico",cursive;
 }
 
+.name-sticker{
+    display:inline-block;
+    width:200px;
+    height:200px;
+    margin-left:0;
+    vertical-align:middle;
+    object-fit:contain;
+}
+
+.name-heading{
+    display:flex;
+    width:100%;
+    max-width:100%;
+    margin:0 auto;
+    align-items:center;
+    justify-content:center;
+    flex-direction:column;
+    gap:0;
+    white-space:normal;
+    overflow:visible;
+    text-align:center;
+}
+
+.name-heading > span{
+    display:block;
+    width:100%;
+    max-width:100%;
+    white-space:nowrap;
+    text-align:center;
+    line-height:1.15;
+}
+
 /* =====================================================
 COMMON
 ===================================================== */
@@ -139,6 +171,15 @@ COMMON
 
 .hero-sticker{
     font-size:72px;
+    animation:bounce 1.5s infinite;
+}
+
+.hero-sticker-image{
+    display:block;
+    width:150px;
+    height:150px;
+    margin:0 auto 8px;
+    object-fit:contain;
     animation:bounce 1.5s infinite;
 }
 
@@ -617,6 +658,7 @@ CAKE
 ===================================================== */
 
 .cake-area{
+    position:relative;
     display:flex;
     justify-content:center;
     align-items:center;
@@ -624,11 +666,91 @@ CAKE
     flex-direction:column;
 }
 
+.cracker-effects{
+    position:absolute;
+    inset:0;
+    overflow:hidden;
+    pointer-events:none;
+    z-index:10;
+}
+
+.cracker-burst{
+    position:absolute;
+    width:10px;
+    height:10px;
+    transform:translate(-50%,-50%);
+}
+
+.cracker-burst span{
+    position:absolute;
+    top:0;
+    left:0;
+    width:7px;
+    height:18px;
+    border-radius:8px;
+    background:var(--spark-color);
+    box-shadow:0 0 12px var(--spark-color);
+    transform-origin:50% 0;
+    animation:crackerSpark .9s cubic-bezier(.15,.75,.3,1) forwards;
+    animation-delay:var(--spark-delay);
+}
+
+@keyframes crackerSpark{
+    0%{
+        opacity:1;
+        transform:rotate(var(--spark-angle)) translateY(0) scale(.7);
+    }
+    70%{opacity:1;}
+    100%{
+        opacity:0;
+        transform:rotate(var(--spark-angle)) translateY(var(--spark-distance)) scale(.15);
+    }
+}
+
+.cake-birthday-text{
+    min-height:42px;
+    margin-bottom:4px;
+    color:#ffb6d7;
+    font-family:"Pacifico",cursive;
+    font-size:clamp(24px,6vw,40px);
+    text-align:center;
+    text-shadow:0 0 18px rgba(255,114,182,.55);
+    opacity:0;
+    transform:translateY(12px) scale(.92);
+    transition:opacity .55s ease,transform .55s ease;
+}
+
+.cake-birthday-text.visible{
+    opacity:1;
+    transform:translateY(0) scale(1);
+    animation:birthdayTextGlow 1.8s ease-in-out infinite alternate;
+}
+
+@keyframes birthdayTextGlow{
+    from{text-shadow:0 0 12px rgba(255,114,182,.35);}
+    to{text-shadow:0 0 28px rgba(255,114,182,.9);}
+}
+
 .cake{
     position:relative;
-    width:260px;
-    height:190px;
-    margin-top:45px;
+    width:min(420px,90vw);
+    aspect-ratio:1;
+    height:auto;
+    margin-top:15px;
+}
+
+.cake-image{
+    display:block;
+    width:100%;
+    height:100%;
+    object-fit:contain;
+    opacity:1;
+    transition:opacity .28s ease,transform .28s ease;
+}
+
+.cake-image.changing{
+    opacity:.2;
+    transform:scale(.985);
 }
 
 .cake-top{
@@ -684,22 +806,19 @@ CAKE
 
 .candle{
     position:absolute;
-    bottom:120px;
-    width:18px;
-    height:60px;
-    background:repeating-linear-gradient(
-        45deg,
-        #fff 0 7px,
-        #ff72b6 7px 14px
-    );
-    border-radius:5px;
+    top:19%;
+    width:11%;
+    height:20%;
+    background:transparent;
+    border:0;
+    border-radius:12px;
     z-index:6;
     cursor:pointer;
 }
 
-.candle1{left:75px;}
-.candle2{left:121px;}
-.candle3{left:167px;}
+.candle1{left:35%;}
+.candle2{left:46%;}
+.candle3{left:57%;}
 
 .flame{
     position:absolute;
@@ -719,6 +838,10 @@ CAKE
 }
 
 .candle.off .flame{
+    display:none;
+}
+
+.cake .candle .flame{
     display:none;
 }
 
@@ -957,6 +1080,19 @@ NAV
     text-align:center;
 }
 
+.page-gate{
+    margin:24px auto 0;
+    color:var(--pink);
+    font-size:12px;
+    font-weight:700;
+    letter-spacing:.3px;
+    text-align:center;
+}
+
+.page-gate.complete{
+    color:var(--green);
+}
+
 /* =====================================================
 CONFETTI
 ===================================================== */
@@ -1069,12 +1205,16 @@ SECRET BIRTHDAY FILE
 
 <h1 style="
 font-family:'Pacifico',cursive;
-font-size:clamp(38px,10vw,60px);
+font-size:clamp(22px,7.2vw,56px);
 background:linear-gradient(120deg,#fff,#ff72b6);
 -webkit-background-clip:text;
 color:transparent;
-">
-Hello Riddhika Jii 💗
+" class="name-heading">
+<span>Hello Riddhika Jii</span>
+<img
+class="name-sticker"
+src="1000084830.png"
+alt="Cute cat holding flowers">
 </h1>
 
 <p style="
@@ -1139,9 +1279,10 @@ PAGE 02 / 10
 
 <div class="hero">
 
-<div class="hero-sticker">
-🎀
-</div>
+<img
+class="hero-sticker-image"
+src="1000084826.png"
+alt="Cute cat holding flowers">
 
 <div style="
 color:var(--pink);
@@ -1149,7 +1290,7 @@ font-weight:700;
 letter-spacing:3px;
 font-size:12px;
 ">
-18 • SEPTEMBER • 2026
+18 • SEPTEMBER 
 </div>
 
 <h1>
@@ -1166,7 +1307,6 @@ way too boring... so I made you a tiny birthday universe. 🌷
 <div class="sticker">🧸</div>
 <div class="sticker">🎀</div>
 <div class="sticker">🦋</div>
-<div class="sticker">🐰</div>
 
 </div>
 
@@ -1436,6 +1576,10 @@ class="pickup-grid"
 id="pickupGrid">
 </div>
 
+<div class="page-gate" id="factsGate">
+Reveal all facts to go to the next page 💌
+</div>
+
 </section>
 
 
@@ -1510,6 +1654,10 @@ Try Again
 
 </div>
 
+<div class="page-gate" id="quizGate">
+Complete Power Play to go to the next page 🧠
+</div>
+
 </section>
 
 
@@ -1569,6 +1717,10 @@ Start Treasure Hunt 🎮
 
 </div>
 
+<div class="page-gate" id="treasureGate">
+Finish all 3 rounds to go to the next page 🎁
+</div>
+
 </div>
 
 </section>
@@ -1600,17 +1752,18 @@ Tap every candle to blow it out.
 
 <div class="cake-area">
 
+<div class="cake-birthday-text" id="cakeBirthdayText">
+Happy Birthday Riddhika Jii 💗
+</div>
+
+<div class="cracker-effects" id="crackerEffects"></div>
+
 <div class="cake">
 
-<div class="cake-top"></div>
-
-<div class="cream"></div>
-
-<div class="drip drip1"></div>
-<div class="drip drip2"></div>
-<div class="drip drip3"></div>
-
-<div class="cake-body"></div>
+<img
+class="cake-image"
+src="3-Photoroom.png"
+alt="Birthday cake for Riddhika Jii">
 
 <div
 class="candle candle1"
@@ -1643,6 +1796,10 @@ id="cakeMessage">
 Make a wish. ✨
 </div>
 
+</div>
+
+<div class="page-gate" id="cakeGate">
+Blow out all candles to go to the next page 🎂
 </div>
 
 </div>
@@ -1709,7 +1866,7 @@ Have the happiest birthday. 🎀✨
 
 <button
 class="main-btn"
-onclick="celebrate()">
+onclick="celebrate(true)">
 Open Final Surprise 🎉
 </button>
 
@@ -1730,6 +1887,8 @@ you actually reached the end. 🥹
 🎀 <b>Official Birthday Certificate</b> 🎀
 
 <br>
+
+Treasure Hunt complete! You can go to the next page ✨
 
 🏆 Certified Cute Human
 <br>
@@ -2103,7 +2262,9 @@ function updatePage(){
         .disabled=currentPage===1;
 
     document.getElementById("nextBtn")
-        .disabled=currentPage===pages.length-1;
+        .disabled=
+            currentPage===pages.length-1 ||
+            !canGoNext();
 
     globalMusicToggle.classList.toggle(
         "visible",
@@ -2276,6 +2437,18 @@ pickupLines.forEach(line=>{
 
     card.onclick=()=>{
         card.classList.toggle("revealed");
+
+        const allRevealed=
+            document.querySelectorAll(".pickup:not(.revealed)").length===0;
+
+        factsCompleted=allRevealed;
+        updateCompletionGate(
+            "factsGate",
+            factsCompleted,
+            "All facts revealed! You can go to the next page ✨",
+            "Reveal all facts to go to the next page 💌"
+        );
+        updatePage();
     };
 
     pickupGrid.appendChild(card);
@@ -2359,6 +2532,29 @@ answer:0
 
 let quizIndex=0;
 let quizPoints=0;
+let factsCompleted=false;
+let quizCompleted=false;
+let treasureCompleted=false;
+
+function updateCompletionGate(id,completed,completeText,incompleteText){
+
+    const gate=document.getElementById(id);
+
+    if(!gate) return;
+
+    gate.textContent=completed ? completeText : incompleteText;
+    gate.classList.toggle("complete",completed);
+}
+
+function canGoNext(){
+
+    if(currentPage===4) return factsCompleted;
+    if(currentPage===5) return quizCompleted;
+    if(currentPage===6) return treasureCompleted;
+    if(currentPage===7) return cakeCompleted;
+
+    return true;
+}
 
 function loadQuiz(){
 
@@ -2446,6 +2642,15 @@ function answerQuiz(index,button){
             document.getElementById("quizProgress")
                 .style.width="100%";
 
+            quizCompleted=true;
+            updateCompletionGate(
+                "quizGate",
+                true,
+                "Power Play complete! You can go to the next page ✨",
+                "Complete Power Play to go to the next page 🧠"
+            );
+            updatePage();
+
         }
 
     },800);
@@ -2455,6 +2660,14 @@ function restartQuiz(){
 
     quizIndex=0;
     quizPoints=0;
+    quizCompleted=false;
+
+    updateCompletionGate(
+        "quizGate",
+        false,
+        "Power Play complete! You can go to the next page ✨",
+        "Complete Power Play to go to the next page 🧠"
+    );
 
     document.getElementById("quizBox")
         .style.display="block";
@@ -2484,6 +2697,14 @@ function startTreasureGame(){
     treasureScore=0;
     treasureRunning=true;
     treasureLocked=false;
+    treasureCompleted=false;
+
+    updateCompletionGate(
+        "treasureGate",
+        false,
+        "Treasure Hunt complete! You can go to the next page ✨",
+        "Finish all 3 rounds to go to the next page 🎁"
+    );
 
     document.getElementById("treasureScore")
         .textContent=treasureScore;
@@ -2578,6 +2799,7 @@ function pickTreasure(index){
 function finishTreasureGame(){
 
     treasureRunning=false;
+    treasureCompleted=true;
 
     document.querySelectorAll(".treasure-card")
         .forEach(card=>{
@@ -2613,6 +2835,14 @@ function finishTreasureGame(){
 
     document.getElementById("treasureStart")
         .textContent="Play Again 🔄";
+
+    updateCompletionGate(
+        "treasureGate",
+        true,
+        "Treasure Hunt complete! You can go to the next page ✨",
+        "Finish all 3 rounds to go to the next page 🎁"
+    );
+    updatePage();
 }
 
 /* =====================================================
@@ -2620,6 +2850,59 @@ CAKE
 ===================================================== */
 
 let candlesOff=0;
+let cakeCompleted=false;
+const cakeImage=document.querySelector(".cake-image");
+const cakeBirthdayText=document.getElementById("cakeBirthdayText");
+
+function updateCakeImage(imageNumber){
+
+    cakeImage.classList.add("changing");
+
+    setTimeout(()=>{
+        cakeImage.src=imageNumber+"-Photoroom.png";
+        cakeImage.classList.remove("changing");
+    },140);
+}
+
+function launchCrackers(){
+
+    const effects=document.getElementById("crackerEffects");
+    effects.innerHTML="";
+
+    const burstPositions=[
+        {left:"20%",top:"28%"},
+        {left:"80%",top:"24%"},
+        {left:"50%",top:"8%"}
+    ];
+
+    const colors=["#ffd45c","#ff72b6","#9b7cff","#65e6aa"];
+
+    burstPositions.forEach((position,burstIndex)=>{
+
+        const burst=document.createElement("div");
+        burst.className="cracker-burst";
+        burst.style.left=position.left;
+        burst.style.top=position.top;
+
+        for(let index=0;index<12;index++){
+            const spark=document.createElement("span");
+            spark.style.setProperty("--spark-angle",(index*30)+"deg");
+            spark.style.setProperty("--spark-distance",(35+Math.random()*35)+"px");
+            spark.style.setProperty("--spark-delay",(burstIndex*.12)+"s");
+            spark.style.setProperty(
+                "--spark-color",
+                colors[index%colors.length]
+            );
+            burst.appendChild(spark);
+        }
+
+        effects.appendChild(burst);
+    });
+
+    setTimeout(()=>{
+        effects.innerHTML="";
+    },1400);
+}
 
 function blowCandle(candle){
 
@@ -2630,8 +2913,13 @@ function blowCandle(candle){
     candle.classList.add("off");
 
     candlesOff++;
+    updateCakeImage(3-candlesOff);
 
     if(candlesOff===3){
+
+        cakeCompleted=true;
+        cakeBirthdayText.classList.add("visible");
+        launchCrackers();
 
         document.getElementById("cakeMessage")
             .innerHTML=`
@@ -2639,8 +2927,16 @@ function blowCandle(candle){
             <br><br>
             Make that birthday wish, Riddhika Jii. ✨
             <br>
-            <b>Happy Birthday! 💗</b>
+            <b>Happy Birthday, Riddhika Jii! 💗</b>
             `;
+
+        updateCompletionGate(
+            "cakeGate",
+            true,
+            "Wish made! You can go to the next page ✨",
+            "Blow out all candles to go to the next page 🎂"
+        );
+        updatePage();
 
         celebrate();
     }
@@ -2651,7 +2947,7 @@ function blowCandle(candle){
 FINAL CONFETTI
 ===================================================== */
 
-function celebrate(){
+function celebrate(showFinalSurprise=false){
 
     const symbols=[
         "💗",
@@ -2700,7 +2996,7 @@ function celebrate(){
     const final=
         document.getElementById("finalSurprise");
 
-    if(final){
+    if(final && showFinalSurprise){
         final.style.display="block";
     }
 }
@@ -2863,4 +3159,4 @@ document.addEventListener("keydown",e=>{
 </body>
 </html>
 
-```
+
